@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Patient name:</strong>
+  <%= @consultation.patient_name %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @consultation.patient_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @consultation.date %>
+</p>
+
+<p>
+  <strong>Sittings:</strong>
+  <%= @consultation.sittings %>
+</p>
+
+<p>
+  <strong>Current compliant:</strong>
+  <%= @consultation.current_compliant %>
+</p>
+
+<p>
+  <strong>Imp pat info:</strong>
+  <%= @consultation.imp_pat_info %>
+</p>
+
+<p>
+  <strong>Init diagnosis:</strong>
+  <%= @consultation.init_diagnosis %>
+</p>
+
+<p>
+  <strong>Alt diagnosis:</strong>
+  <%= @consultation.alt_diagnosis %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @consultation.remarks %>
+</p>
+
+<p>
+  <strong>Current medication:</strong>
+  <%= @consultation.current_medication %>
+</p>
+
+<p>
+  <strong>Next consult date:</strong>
+  <%= @consultation.next_consult_date %>
+</p>
+
+<%= link_to 'Edit', edit_consultation_path(@consultation) %> |
+<%= link_to 'Back', consultations_path %>

@@ -1,0 +1,63 @@
+<%= form_for(@consultation, :html => { :class => 'form-horizontal' })  do |f| %>
+  <% if @consultation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@consultation.errors.count, "error") %> prohibited this consultation from being saved:</h2>
+
+      <ul>
+      <% @consultation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field col1">
+    <%= f.label :patient_name, 'Patient Name' %><br>
+    <%= f.text_field :patient_name %>
+  </div>
+
+  <div class="field col2">
+    <%= f.label :patient_id %><br>
+    <%= f.number_field :patient_id %>
+  </div>
+
+  <div class="field col1">
+    <%= f.label :date %><br>
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field col2">
+    <%= f.label :sittings %><br>
+    <%= f.number_field :sittings %>
+  </div>
+  <div class="field col1">
+    <%= f.label :current_compliant %><br>
+    <%= f.text_area :current_compliant %>
+  </div>
+  <div class="field col2">
+    <%= f.label :imp_pat_info, 'Important Patient Information' %><br>
+    <%= f.text_area :imp_pat_info %>
+  </div>
+  <div class="field col1">
+    <%= f.label :init_diagnosis, 'Initial Diagnosis' %><br>
+    <%= f.text_area :init_diagnosis %>
+  </div>
+  <div class="field col2">
+    <%= f.label :alt_diagnosis, 'Alternate Diagnosis' %><br>
+    <%= f.text_area :alt_diagnosis %>
+  </div>
+  <div class="field col1">
+    <%= f.label :remarks %><br>
+    <%= f.text_area :remarks %>
+  </div>
+  <div class="field col2">
+    <%= f.label :current_medication %><br>
+    <%= f.text_area :current_medication %>
+  </div>
+  <div class="field">
+    <%= f.label :next_consult_date %><br>
+    <%= f.datetime_select :next_consult_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

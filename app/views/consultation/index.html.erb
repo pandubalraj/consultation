@@ -1,0 +1,56 @@
+<%- model_class = Consultation -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:patient_name) %></th>
+      <th><%= model_class.human_attribute_name(:patient_id) %></th>
+      <th><%= model_class.human_attribute_name(:date) %></th>
+      <th><%= model_class.human_attribute_name(:sittings) %></th>
+      <th><%= model_class.human_attribute_name(:current_compliant) %></th>
+      <th><%= model_class.human_attribute_name(:imp_pat_info) %></th>
+      <th><%= model_class.human_attribute_name(:init_diagnosis) %></th>
+      <th><%= model_class.human_attribute_name(:alt_diagnosis) %></th>
+      <th><%= model_class.human_attribute_name(:remarks) %></th>
+      <th><%= model_class.human_attribute_name(:current_medication) %></th>
+      <th><%= model_class.human_attribute_name(:next_consult_date) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @consultations.each do |consultation| %>
+      <tr>
+        <td><%= link_to consultation.id, consultation_path(consultation) %></td>
+        <td><%= consultation.patient_name %></td>
+        <td><%= consultation.patient_id %></td>
+        <td><%= consultation.date %></td>
+        <td><%= consultation.sittings %></td>
+        <td><%= consultation.current_compliant %></td>
+        <td><%= consultation.imp_pat_info %></td>
+        <td><%= consultation.init_diagnosis %></td>
+        <td><%= consultation.alt_diagnosis %></td>
+        <td><%= consultation.remarks %></td>
+        <td><%= consultation.current_medication %></td>
+        <td><%= consultation.next_consult_date %></td>
+        <td><%=l consultation.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_consultation_path(consultation), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      consultation_path(consultation),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_consultation_path,
+            :class => 'btn btn-primary' %>

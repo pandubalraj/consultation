@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Consultations</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Patient name</th>
+      <th>Patient</th>
+      <th>Date</th>
+      <th>Sittings</th>
+      <th>Current compliant</th>
+      <th>Imp pat info</th>
+      <th>Init diagnosis</th>
+      <th>Alt diagnosis</th>
+      <th>Remarks</th>
+      <th>Current medication</th>
+      <th>Next consult date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @consultations.each do |consultation| %>
+      <tr>
+        <td><%= consultation.patient_name %></td>
+        <td><%= consultation.patient_id %></td>
+        <td><%= consultation.date %></td>
+        <td><%= consultation.sittings %></td>
+        <td><%= consultation.current_compliant %></td>
+        <td><%= consultation.imp_pat_info %></td>
+        <td><%= consultation.init_diagnosis %></td>
+        <td><%= consultation.alt_diagnosis %></td>
+        <td><%= consultation.remarks %></td>
+        <td><%= consultation.current_medication %></td>
+        <td><%= consultation.next_consult_date %></td>
+        <td><%= link_to 'Show', consultation %></td>
+        <td><%= link_to 'Edit', edit_consultation_path(consultation) %></td>
+        <td><%= link_to 'Destroy', consultation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Consultation', new_consultation_path %>

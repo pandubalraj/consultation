@@ -1,0 +1,101 @@
+<%= form_for @consultation, :html => { :class => "form-horizontal consultation" } do |f| %>
+
+    <% if @consultation.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@consultation.errors.count, "error") %> prohibited this consultation from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @consultation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :patient_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :patient_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@consultation[:patient_name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :patient_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :patient_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@consultation[:patient_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@consultation[:date]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :sittings, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :sittings, :class => 'form-control' %>
+    </div>
+    <%= error_span(@consultation[:sittings]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :current_compliant, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :current_compliant, :class => 'form-control' %>
+    </div>
+    <%= error_span(@consultation[:current_compliant]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :imp_pat_info, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :imp_pat_info, :class => 'form-control' %>
+    </div>
+    <%= error_span(@consultation[:imp_pat_info]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :init_diagnosis, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :init_diagnosis, :class => 'form-control' %>
+    </div>
+    <%= error_span(@consultation[:init_diagnosis]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :alt_diagnosis, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :alt_diagnosis, :class => 'form-control' %>
+    </div>
+    <%= error_span(@consultation[:alt_diagnosis]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :remarks, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :remarks, :class => 'form-control' %>
+    </div>
+    <%= error_span(@consultation[:remarks]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :current_medication, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :current_medication, :class => 'form-control' %>
+    </div>
+    <%= error_span(@consultation[:current_medication]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :next_consult_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :next_consult_date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@consultation[:next_consult_date]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            consultations_path, :class => 'btn btn-default' %>
+
+<% end %>
